@@ -15,11 +15,11 @@ namespace Examples.IPhone
 			Type t = typeof(MainCatalog_ru_RU);
 
 			View = new UIView();
-			View.Frame = new RectangleF(0,0,320, 460);
+			View.Frame = new RectangleF(0f, 0f, 320f, 460f);
 			View.BackgroundColor = UIColor.White;
 
 			UILabel l = new UILabel();
-			l.Frame = new RectangleF(0,0,320,200);
+			l.Frame = new RectangleF(0f, 0f, 320f, 200f);
 			l.Lines = 0;
 			l.LineBreakMode = UILineBreakMode.WordWrap;
 
