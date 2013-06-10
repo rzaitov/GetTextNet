@@ -16,7 +16,7 @@ namespace GNU.Gettext.Test
 			SimpleTestRunner runner = new SimpleTestRunner();
 			if (runner.Load(package))
 			{
-				TestResult result = runner.Run(new NullListener(), TestFilter.Empty);
+				TestResult result = runner.Run(new NullListener(), TestFilter.Empty, true, LoggingThreshold.All);
 				if (!result.IsSuccess)
 					throw new Exception(result.Message);
 			}
