@@ -1,6 +1,7 @@
 using System;
 using System.Drawing;
 using System.Globalization;
+using System.Text;
 
 using MonoTouch.UIKit;
 
@@ -12,7 +13,7 @@ namespace Examples.IPhone
 	{
 		public MainController()
 		{
-			Type t = typeof(MainCatalog_ru_RU);
+			//Type t = typeof(MainCatalog_ru_RU);
 
 			View = new UIView();
 			View.Frame = new RectangleF(0f, 0f, 320f, 460f);
@@ -27,16 +28,19 @@ namespace Examples.IPhone
 
 			CultureInfo ci = new CultureInfo ("ru-RU");
 
-			GettextResourceManager catalog = new GettextResourceManager ("MainCatalog");
+			GettextResourceManager catalog = new GettextResourceManager ("MainCatalog", new DifferentNamesSingleFolderPathResolver());
 
-			l.Text += catalog.GetString (Text.MyNameIs, ci);
-			l.Text += catalog.GetString (Text.GoodFeet, ci);
-			l.Text += catalog.GetString (Text.PerfectFeet, ci);
+			StringBuilder sb = new StringBuilder();
+			sb.AppendLine(catalog.GetString (Text.MyNameIs, ci))
+			  .AppendLine(catalog.GetString (Text.MyAge, ci))
+			  .AppendLine(catalog.GetString (Text.ILove, ci));
 
 			for (int i = 0; i < 6; i++)
 			{
-				l.Text +=  string.Format (catalog.GetPluralString(Text.PluralDay, Text.PluralDays, i, ci), i);
+				sb.AppendLine(string.Format (catalog.GetPluralString(Text.PluralDay, Text.PluralDays, i, ci), i));
 			}
+
+			l.Text = sb.ToString();
 		}
 	}
 }

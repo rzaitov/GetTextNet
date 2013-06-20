@@ -5,17 +5,16 @@ namespace Examples.IPhone
 	public static class Text
 	{
 		public static readonly string MyNameIs = "__MyNameIs__";
-		public static readonly string GoodFeet = "__GoodFeet__";
-		public static readonly string PerfectFeet = "__PerfectFeet__";
+		public static readonly string MyAge = "__MyAge__";
+		public static readonly string ILove = "__ILove__";
 		public static readonly string PluralDay = "__PluralDay__";
 		public static readonly string PluralDays = "__PluralDays__";
-		
-		static void Dummy()
-		{
-			//GettextResourceManager c = new GettextResourceManager ();
-			//c.GetPluralString ("__PluralDay__", "__PluralDays__", 1);
-			
-		}
 	}
-}
 
+#if NEVERCOMPILE
+	GetPluralString ("__PluralDay__", "__PluralDays__", 1);
+	GetString("__MyNameIs__");
+	GetString("__MyAge__");
+	GetString("__ILove__");
+#endif
+}

@@ -87,6 +87,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
+    <None Include="Localization\En.po" />
+    <None Include="Localization\Messages.pot" />
+    <None Include="Localization\Ru.po" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
